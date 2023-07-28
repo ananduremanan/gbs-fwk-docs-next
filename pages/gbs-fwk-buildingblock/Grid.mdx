@@ -1,0 +1,173 @@
+# Uploader Component
+
+Date Picker component that can be used to select date input from the user.
+
+## Props
+
+| Property    | Type    |
+| ----------- | ------- |
+| pageSize    | number  |
+| dateSourec  | any     |
+| className   | string  |
+| columnName  | string  |
+| className   | string  |
+| allowPaging | boolean |
+| columns     | any []  |
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { useState } from 'react';
+import './App.css';
+import { Grid } from 'building-blocks';
+import data from './data/data.json'; // JSON file for fetching the data
+
+function App() {
+  // State to store DataSource
+  const [dataSource, setDataSource] = useState(data);
+
+  const handleOnchange = (event: any, props: any) => {
+    const newData = [...dataSource];
+    const itemIndex = newData.findIndex(
+      (item) => item.OrderID === props.OrderID
+    );
+    newData[itemIndex].Freight = event.target.value;
+    setDataSource(newData);
+  };
+
+  // Custom Grid Component
+  const gridTemplate = (props: any) => {
+    const val = props.Freight;
+    return (
+      <div>
+        <input
+          defaultValue={val}
+          onBlur={(event) => handleOnchange(event, props)}
+        />
+      </div>
+    );
+  };
+
+  // Grid
+  const columns = [
+    { field: 'OrderID', width: '200', textAlign: 'Right' },
+    { field: 'CustomerID', width: '100' },
+    { field: 'EmployeeID', width: '100', textAlign: 'Right' },
+    {
+      field: 'Freight',
+      headerText: 'Frieght',
+      width: '200',
+      template: gridTemplate,
+    },
+    { field: 'ShipCountry', width: '200' },
+    { field: 'ShipAddress', width: '150' },
+  ];
+
+  return (
+    <div className="App">
+      <div>
+        <form onSubmit={handleSubmit}>
+          <div className="container">
+            <div className="row">
+              <div className="column">
+                <Grid
+                  pageSize={6} // Page Size for Grid
+                  dataSource={dataSource}
+                  allowPaging={true}
+                  columns={columns}
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import { Grid } from 'building-blocks';
+import './App.css';
+import React from 'react';
+import data from './data/data.json'; // JSON file for fetching the data
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataSource: data,
+    };
+  }
+
+  handleOnchange = (event, props) => {
+    const newData = [...this.state.dataSource];
+    const itemIndex = newData.findIndex(
+      (item) => item.OrderID === props.OrderID
+    );
+    newData[itemIndex].Freight = event.target.value;
+    this.setState({ dataSource: newData });
+  };
+
+  // Custom Grid Component
+  gridTemplate = (props) => {
+    const val = props.Freight;
+    return (
+      <div>
+        <input
+          defaultValue={val}
+          onBlur={(event) => this.handleOnchange(event, props)}
+        />
+      </div>
+    );
+  };
+
+  // Grid
+  columns = [
+    { field: 'OrderID', width: '200', textAlign: 'Right' },
+    { field: 'CustomerID', width: '100' },
+    { field: 'EmployeeID', width: '100', textAlign: 'Right' },
+    {
+      field: 'Freight',
+      headerText: 'Frieght',
+      width: '200',
+      template: this.gridTemplate,
+    },
+    { field: 'ShipCountry', width: '200' },
+    { field: 'ShipAddress', width: '150' },
+  ];
+
+  render() {
+    return (
+      <div className="App">
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <div className="container">
+              <div className="row">
+                <div className="column">
+                  <Grid
+                    pageSize={6} // Page Size for Grid
+                    dataSource={this.state.dataSource}
+                    allowPaging={true}
+                    columns={this.columns}
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
