@@ -1,0 +1,97 @@
+# Text Box Component
+
+Text Box component that can be used to collect user input.
+
+## Props
+
+| Property    | Type                                             |
+| ----------- | ------------------------------------------------ |
+| type        | string                                           |
+| label       | string                                           |
+| value       | string                                           |
+| onChange    | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| disabled    | boolean                                          |
+| required    | boolean                                          |
+| className   | string                                           |
+| name        | string                                           |
+| placeholder | string                                           |
+| id          | any                                              |
+| name        | string                                           |
+| min         | any                                              |
+| step        | number                                           |
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { useState } from 'react';
+import './App.css';
+import { Textbox } from 'gbs-fwk-buildingBlock';
+
+function App() {
+  // State to store Text
+  const [text, setText] = useState('');
+
+  const handleTextChange = (event: any) => {
+    setText(event.target.value);
+  };
+
+  return (
+    <div className="App">
+      <Textbox
+        type="text"
+        placeholder="Enter Your Text"
+        label="This Text is Simple"
+        onChange={handleTextChange}
+        value={text}
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import React from 'react';
+import './App.css';
+import { Textbox } from 'gbs-fwk-buildingblock';
+
+interface AppState {
+  text: string;
+}
+
+class App extends React.Component<{}, AppState> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      text: '',
+    };
+  }
+
+  handleTextChange = (event: any) => {
+    this.setState({ text: event.target.value });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Textbox
+          type="text"
+          placeholder="Enter Your Text"
+          label="This Text is Simple"
+          onChange={this.handleTextChange}
+          value={this.state.text}
+        />
+      </div>
+    );
+  }
+}
+
+export default App;
+```

@@ -1,7 +1,6 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "gbs-fwk-buildingblock": "Building Block",
   "about": {
     "title": "About",
     "type": "page"

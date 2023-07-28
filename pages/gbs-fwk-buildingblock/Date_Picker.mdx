@@ -1,0 +1,76 @@
+# Date Picker Component
+
+Date Picker component that can be used to select date input from the user.
+
+## Props
+
+| Property    | Type                                             |
+| ----------- | ------------------------------------------------ |
+| placeholder | string                                           |
+| value       | Date                                             |
+| onChange    | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| className   | string                                           |
+| name        | string                                           |
+| disabled    | boolean                                          |
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import React from 'react';
+import './App.css';
+import { DatePicker } from 'gbs-fwk-buildingBlock';
+
+function App() {
+  const [date, setDate] = useState();
+  handleDateChange = (event) => {
+    setDate(event.target.value);
+  };
+
+  return (
+    <div className="App">
+      <DatePicker
+        placeholder="Date"
+        onChange={this.handleDateChange}
+        value={date}
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import React from 'react';
+import './App.css';
+import { DatePicker } from 'gbs-fwk-buildingblock';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: undefined,
+    };
+  }
+
+  handleDateChange = (event) => {
+    this.setState({ date: event.target.value });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <DatePicker placeholder="Date" onChange={this.handleDateChange} />
+      </div>
+    );
+  }
+}
+
+export default App;
+```

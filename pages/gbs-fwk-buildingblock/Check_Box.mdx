@@ -1,0 +1,52 @@
+# Check Box Component
+
+Check Box component that can be used to render a custom check box and receive input from the user.
+
+## Props
+
+| Property      | Type                                             |
+| ------------- | ------------------------------------------------ |
+| className     | string                                           |
+| id            | any                                              |
+| label         | string                                           |
+| name          | string                                           |
+| disabled      | boolean                                          |
+| onChange      | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| mode          | string                                           |
+| checked       | boolean                                          |
+| indeterminate | boolean                                          |
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { CheckBox } from 'building-blocks';
+import './App.css';
+
+function App() {
+  return (
+    // specifies the tag for render the Selector component
+    <CheckBox label="Select your Account Type" checked={true} />
+  );
+}
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import { CheckBox } from 'building-blocks';
+import './App.css';
+import React from 'react';
+
+class App extends React.Component {
+  render() {
+    return (
+      // specifies the tag for render the Selector component
+      <CheckBox label="Select your Account Type" />
+    );
+  }
+}
+```
