@@ -1,0 +1,107 @@
+# Uploader Component
+
+Date Picker component that can be used to select date input from the user.
+
+## Props
+
+| Property  | Type                                             |
+| --------- | ------------------------------------------------ |
+| fileTypes | any                                              |
+| onChange  | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| className | string                                           |
+| fileCount | number                                           |
+| disabled  | boolean                                          |
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { useState } from "react";
+import "./App.css";
+import { Uploader } from "building-blocks";
+
+function App() {
+  // State to store file data
+  const [files, setFiles] = useState<any[]>([]);
+
+  const handleFilesChange = (newFiles: any[]) => {
+    setFiles(newFiles);
+  };
+
+  const fileTypes = [".exe"]; // Specifying file type
+
+  return (
+    <div className="App">
+      <div>
+        <h2 style={{ color: "#e3165b" }}>Custom Npm Package</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="container">
+            <div className="row">
+              <div className="column">
+                <Uploader
+                  onFilesChange={handleFilesChange}
+                  fileCount={2}
+                  fileTypes={fileTypes}
+                ></Uploader>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import { Uploader } from 'building-blocks';
+import './App.css';
+import React from 'react';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      files: [],
+    };
+  }
+
+  handleFilesChange = (newFiles) => {
+    this.setState({ files: newFiles });
+  };
+
+  fileTypes = ['.exe']; // Specifying file type
+
+  render() {
+    return (
+      <div className="App">
+        <div>
+          <h2 style={{ color: '#e3165b' }}>Custom Npm Package</h2>
+          <form onSubmit={this.handleSubmit}>
+            <div className="container">
+              <div className="row">
+                <div className="column">
+                  <Uploader
+                    onFilesChange={this.handleFilesChange}
+                    fileCount={2}
+                    fileTypes={this.fileTypes}
+                  ></Uploader>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App;
+```

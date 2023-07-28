@@ -1,0 +1,93 @@
+# TimePicker Component
+
+Check Box component that can be used to render a custom check box and receive input from the user.
+
+## Props
+
+| Property  | Type                                             |
+| --------- | ------------------------------------------------ |
+| className | string                                           |
+| id        | any                                              |
+| label     | string                                           |
+| name      | string                                           |
+| onChange  | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| minTime   | Date                                             |
+| maxTime   | Date                                             |
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { useState } from 'react';
+import './App.css';
+import { TimePicker } from 'building-blocks';
+
+function App() {
+  // State to store Time
+  const [time, setTime] = useState();
+
+  const handleTimeChange = (event: any) => {
+    setTime(event.target.value);
+  };
+
+  // [ Optional* ] initialize the min and max time value
+  const minTime = new Date('8/3/2017 9:00 AM');
+  const maxTime = new Date('8/3/2017 11:30 AM');
+
+  return (
+    <div className="App">
+      <TimePicker
+        placeholder="Time"
+        onChange={handleTimeChange}
+        minTime={minTime}
+        maxTime={maxTime}
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import { TimePicker } from 'building-blocks';
+import './App.css';
+import React from 'react';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: undefined,
+    };
+  }
+
+  handleTimeChange = (event) => {
+    this.setState({ time: event.target.value });
+  };
+
+  // [ Optional* ] initialize the min and max time value
+  minTime = new Date('8/3/2017 9:00 AM');
+  maxTime = new Date('8/3/2017 11:30 AM');
+
+  render() {
+    return (
+      <div className="App">
+        <TimePicker
+          placeholder="Time"
+          onChange={this.handleTimeChange}
+          minTime={this.minTime}
+          maxTime={this.maxTime}
+        />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
