@@ -1,0 +1,131 @@
+# DropDown Component
+
+Check Box component that can be used to render a custom check box and receive input from the user.
+
+## Props
+
+| Property       | Type                                             |
+| -------------- | ------------------------------------------------ |
+| className      | string                                           |
+| id             | any                                              |
+| label          | string                                           |
+| name           | string                                           |
+| disabled       | boolean                                          |
+| onChange       | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| dataSource     | any []                                           |
+| fields         | object                                           |
+| sortOrder      | any                                              |
+| placeholder    | string                                           |
+| allowFiltering | boolean                                          |
+| popupHeight    | string                                           |
+| autofill       | boolean                                          |
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { useState } from 'react';
+import './App.css';
+import { DropDown } from 'gbs-building-block';
+
+function App() {
+  let data = [
+    { id: 1, name: 'Discover Music' },
+    { id: 2, pid: 1, name: 'Hot Singles' },
+    { id: 3, pid: 1, name: 'Rising Artists' },
+    { id: 4, pid: 1, name: 'Live Music' },
+    { id: 6, pid: 1, name: 'Best of 2017 So Far' },
+    { id: 7, name: 'Sales and Events' },
+    { id: 8, pid: 7, name: '100 Albums' },
+    { id: 9, pid: 7, name: 'Hip-Hop and R&B Sale' },
+    { id: 10, pid: 7, name: 'CD Deals' },
+  ];
+  let fields = { text: 'name', value: 'name' };
+
+  // State to store selected data
+  const [selectedData, setSelectedData] = useState();
+
+  console.log(selectedData);
+
+  const handleComboChange = (args: any) => {
+    setSelectedData(args.itemData);
+  };
+
+  return (
+    <div className="App">
+      <div style={{ width: '12rem' }}>
+        <DropDown
+          allowFiltering={true}
+          dataSource={data}
+          fields={fields}
+          placeholder="Choose the choosen one"
+          id="custom_data"
+          name="data_custom"
+          autofill={true}
+          onChange={handleComboChange}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import React from 'react';
+import './App.css';
+import { DropDown } from 'gbs-building-block';
+
+class App extends React.Component {
+  data = [
+    { id: 1, name: 'Discover Music' },
+    { id: 2, pid: 1, name: 'Hot Singles' },
+    { id: 3, pid: 1, name: 'Rising Artists' },
+    { id: 4, pid: 1, name: 'Live Music' },
+    { id: 6, pid: 1, name: 'Best of 2017 So Far' },
+    { id: 7, name: 'Sales and Events' },
+    { id: 8, pid: 7, name: '100 Albums' },
+    { id: 9, pid: 7, name: 'Hip-Hop and R&B Sale' },
+    { id: 10, pid: 7, name: 'CD Deals' },
+  ];
+
+  fields = { text: 'name', value: 'name' };
+
+  state = {
+    selectedData: undefined,
+  };
+
+  handleComboChange = (args) => {
+    this.setState({ selectedData: args.itemData });
+  };
+
+  render() {
+    console.log(this.state.selectedData);
+
+    return (
+      <div className="App">
+        <div style={{ width: '12rem' }}>
+          <DropDown
+            allowFiltering={true}
+            dataSource={this.data}
+            fields={this.fields}
+            placeholder="Choose the choosen one"
+            id="custom_data"
+            name="data_custom"
+            autofill={true}
+            onChange={this.handleComboChange}
+          />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App;
+```

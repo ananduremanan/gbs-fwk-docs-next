@@ -1,0 +1,93 @@
+# Multi Select Dropdown Component
+
+Check Box component that can be used to render a custom check box and receive input from the user.
+
+## Props
+
+| Property       | Type                                             |
+| -------------- | ------------------------------------------------ |
+| className      | string                                           |
+| id             | any                                              |
+| label          | string                                           |
+| name           | string                                           |
+| onChange       | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| dataSource     | any []                                           |
+| fields         | object                                           |
+| placeholder    | string                                           |
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { MultiSelectDropdown } from "building-blocks";
+import { MultiSelectDropdown } from "gbs-fwk-buildinblock";
+
+function App() {
+  let data: any[] = [
+    { Name: "Australia", Code: "AU" },
+    { Name: "Bermuda", Code: "BM" },
+    { Name: "Canada", Code: "CA" },
+    { Name: "Cameroon", Code: "CM" },
+    { Name: "Denmark", Code: "DK" },
+  ];
+
+  let fields = { text: "Name", value: "Code" };
+
+  let value: any = ["CM", "DK"]; // can set multiple default values/single one
+
+  return (
+    <div className="App">
+      <h1>Testing Ground</h1>
+      <MultiSelectDropdown
+        dataSource={data}
+        fields={fields}
+        value={value}
+        mode="CheckBox"
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import React from "react";
+import { MultiSelectDropdown } from "building-blocks";
+import { MultiSelectDropdown } from "gbs-fwk-buildinblock";
+
+class App extends React.Component {
+  data = [
+    { Name: "Australia", Code: "AU" },
+    { Name: "Bermuda", Code: "BM" },
+    { Name: "Canada", Code: "CA" },
+    { Name: "Cameroon", Code: "CM" },
+    { Name: "Denmark", Code: "DK" },
+  ];
+
+  fields = { text: "Name", value: "Code" };
+
+  value = ["CM", "DK"];
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Testing Ground</h1>
+        <MultiSelectDropdown
+          dataSource={this.data}
+          fields={this.fields}
+          value={this.value}
+          mode="CheckBox"
+        />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
