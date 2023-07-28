@@ -1,0 +1,134 @@
+# Dialog Box Component
+
+Date Picker component that can be used to select date input from the user.
+
+`<Dialog />` uses an additional package called `gbs-fwk-core`. This package is already shipped with the `gbs-fwk-buildingblock ` so just import it as well.
+
+Add `<Dialog />` Component to `App.tsx`[or wherever you prefer to add].
+
+```jsx filename="App.tsx"
+import { Dialog } from 'gbs-fwk-buildingblock';
+
+function App() {
+  return (
+    <div className="App">
+      <Dialog />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Props
+
+| Property     | Type   |
+| ------------ | ------ |
+| key          | string |
+| type         | string |
+| title        | string |
+| content      | string |
+| position     | object |
+| okButton     | object |
+| cancelButton | object |
+| width        | string |
+
+#### Types of Dialogs
+
+There are two types of dialog types.
+
+1. `type: "alert" `: Produces a alert dialog with one button(There is no need of cancelButton Props here.)
+2. `type: "confirm`: Produces a dialog with a multiple option.
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { messageService } from 'gbs-fwk-core';
+
+export default function DeleteAction() {
+  let subscription: any;
+
+  const handleOnClick = () => {
+    if (subscription) {
+      subscription.unsubscribe();
+    }
+    subscription = messageService.getMessage().subscribe((message: any) => {
+      if (message.key === '') {
+        console.log(message.status);
+      } else if (message.key === 'item_delete_callback') {
+        console.log(message.status);
+      }
+    });
+
+    messageService.sendMessage({
+      key: 'dialog_alert',
+      type: 'confirm', // *You can choose either "confirm" or "alert" here!
+      title: 'Are you sure?',
+      content: 'This is how a error look like!',
+      position: { X: 'center', Y: 'center' },
+      okButton: { text: "I'm in", icon: 'e-icons e-check' },
+      cancelButton: { text: "I don't think so!", icon: 'e-icons e-close' },
+      callbackUrl: 'item_delete_callback',
+      width: '300px',
+    });
+  };
+
+  return (
+    <div>
+      <div>Delete Action</div>
+      <button onClick={handleOnClick}>Delete This!</button>
+    </div>
+  );
+}
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import React from 'react';
+import { messageService } from 'gbs-fwk-core';
+
+class DeleteAction extends React.Component {
+  subscription: any;
+
+  handleOnClick = () => {
+    if (subscription) {
+      subscription.unsubscribe();
+    }
+    subscription = messageService.getMessage().subscribe((message: any) => {
+      if (message.key === '') {
+        console.log(message.status);
+      } else if (message.key === 'item_delete_callback') {
+        console.log(message.status);
+      }
+    });
+
+    messageService.sendMessage({
+      key: 'dialog_alert',
+      type: 'alert', // *You can choose either "confirm" or "alert" here!
+      title: 'Are you sure?',
+      content: 'This is how a error look like!',
+      position: { X: 'center', Y: 'center' },
+      okButton: { text: "I'm in", icon: 'e-icons e-check' },
+      cancelButton: { text: "I don't think so!", icon: 'e-icons e-close' },
+      callbackUrl: 'item_delete_callback',
+      width: '300px',
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <div>Delete Action</div>
+        <button onClick={this.handleOnClick}>Delete This!</button>
+      </div>
+    );
+  }
+}
+
+export default DeleteAction;
+```
