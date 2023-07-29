@@ -1,0 +1,30 @@
+## Message Service
+
+Uses RXjs services to passes information between components.
+
+### Methods & Examples:
+        
+        - **`sendMessage`**: To send a message using the **`sendMessage`** method, you can call it and pass the message as an argument. For example:
+            
+            ```jsx
+            import { messageService } from "gbs-fwk-core";
+            messageService.sendMessage({
+                  key: "bb_toast", // unique key
+                });
+            ```
+            
+        - **`clearMessages`**: To clear any messages, you can call the **`clearMessages`** method without any arguments. For example:
+            
+            ```jsx
+            import { messageService } from 'gbs-fwk-core';
+            messageService.clearMessages();
+            ```
+            
+        - **`getMessage`**: To receive messages, you can call the **`getMessage`** method and subscribe to the returned observable. For example:
+            
+            ```jsx
+            import { messageService } from 'gbs-fwk-core';
+            messageService.getMessage().subscribe(message => {
+              console.log(message); // This will print the messages sent using sendMessage()
+            });
+            ```

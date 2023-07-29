@@ -1,0 +1,43 @@
+## Config Service
+
+The **`configService`** object provides functionalities to load configuration data from a JSON file and retrieve specific configuration values.
+
+        ### Methods:
+
+        - **`loadConfigData(): Promise<any>`**: This method loads the configuration data from the "assets/app-settings.json" file and stores it in the **`appSettings`** variable. It returns a Promise that resolves to **`true`** when the data is successfully loaded, or **`false`** if there was an error while loading the data.
+        - **`getConfigValue(key: string): string`**:This method retrieves the configuration value associated with the given **`key`** from the **`appSettings`** object.
+
+        Parameters:
+
+        - **`key`** (string): The key for which the corresponding configuration value should be retrieved.
+
+        Returns
+
+        - **`string`**: The configuration value associated with the provided **`key`**. If the **`key`** does not exist or an error occurs while retrieving the value, an empty string is returned.
+
+        Usage Example:
+
+        ```jsx
+        // Usage example 1: Loading configuration data
+        configService.loadConfigData()
+          .then((success) => {
+            if (success) {
+              console.log("Configuration data loaded successfully.");
+            } else {
+              console.error("Failed to load configuration data.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error while loading configuration data:", error);
+          });
+
+        // Usage example 2: Retrieving configuration values
+        const apiKey = configService.getConfigValue("apiKey");
+        console.log("API Key:", apiKey);
+
+        const apiUrl = configService.getConfigValue("apiUrl");
+        console.log("API URL:", apiUrl);
+
+        ```
+
+        In this example, the **`configService`** object is used to load configuration data from the "assets/app-settings.json" file and retrieve specific configuration values using **`getConfigValue`** method. Before using **`getConfigValue`**, ensure that you have loaded the configuration data by calling **`loadConfigData`** method and that the JSON file contains the necessary configuration settings.
