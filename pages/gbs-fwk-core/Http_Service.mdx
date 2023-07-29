@@ -1,0 +1,51 @@
+## Http Service
+
+The **`httpService`** object provides utility methods to make HTTP requests using the Fetch API and handle the responses. It also includes functions to show and hide a loader icon during the request.
+        
+        ### Methods:
+        
+        - **`request(request: RequestInfo, init?: RequestInit, showLoaderIcon = true): Promise<any>`**:This method makes an asynchronous HTTP request using the Fetch API. It takes the following parameters:
+            - **`request`** (RequestInfo): The URL or the **`Request`** object representing the resource to fetch.
+            - **`init`** (RequestInit, optional): An options object containing any custom settings that should be applied to the request, such as headers, method, body, etc.
+            - **`showLoaderIcon`** (boolean, optional): A flag indicating whether to show a loader icon during the request. It is **`true`** by default.
+            - Returns:
+                - **`Promise<any>`**: A Promise that resolves to the response data if the request is successful, or an object with error details if the request fails.
+        - **`parseJSON(response: any): Promise<any>`**:This method parses the JSON response from an HTTP request. It takes the response object as input and returns a Promise that resolves to the parsed JSON data.
+            - Parameters
+                - **`response`** (any): The response object received from the HTTP request.
+                
+                Returns:
+                
+                **`Promise<any>`**: A Promise that resolves to the parsed JSON data from the response.
+                
+        - **`showLoader(): void`**:This method shows the loader icon on the page. It sets the display style of the element with the ID "loader" to "block."
+        - **`hideLoader(): void`:**This method hides the loader icon on the page. It sets the display style of the element with the ID "loader" to "none."
+        
+        Usage Example:
+        
+        ```jsx
+        // Example usage of httpService.request
+        const apiUrl = "https://api.example.com/data";
+        const requestData = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+          },
+        };
+        
+        httpService.request(apiUrl, requestData)
+          .then((data) => {
+            console.log("Response data:", data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+        
+        // Example usage of httpService.showLoader and httpService.hideLoader
+        httpService.showLoader();
+        // ... make an HTTP request ...
+        httpService.hideLoader();
+        ```
+        
+        In this example, the **`httpService`** object can be used to make HTTP requests using the Fetch API. It automatically shows and hides a loader icon (if enabled) during the request to indicate loading progress. The **`request`** method returns a Promise that resolves to the response data if the request is successful or an object with error details if the request fails. Ensure that you have an HTML element with the ID "loader" on your page for the **`showLoader`** and **`hideLoader`** functions to work as expected.
