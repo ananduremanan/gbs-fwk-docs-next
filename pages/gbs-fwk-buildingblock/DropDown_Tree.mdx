@@ -1,47 +1,47 @@
 # Dropdown Tree Component
 
-Check Box component that can be used to render a custom check box and receive input from the user.
+Drop Down Tree component that can be used to render a custom Drop Down Tree and receive input from the user.
 
 ## Props
 
-| Property       | Type                                             |
-| -------------- | ------------------------------------------------ |
-| className      | string                                           |
-| id             | any                                              |
-| label          | string                                           |
-| name           | string                                           |
-| onChange       | (event: ChangeEvent`<HTMLInputElement>`) => void |
-| dataSource     | any []                                           |
-| fields         | object                                           |
-| placeholder    | string                                           |
+| Property    | Type                                             |
+| ----------- | ------------------------------------------------ |
+| className   | string                                           |
+| id          | any                                              |
+| label       | string                                           |
+| name        | string                                           |
+| onChange    | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| dataSource  | any []                                           |
+| fields      | object                                           |
+| placeholder | string                                           |
 
 ## Usage
 
-Here's an example of how to use the Text Box component:
+Here's an example of how to use the Drop Down Tree component:
 
 ##### Functional Component
 
 ```jsx filename="App.tsx"
-import "./App.css";
-import { DropDownTree } from "gbs-fwk-buildingblock";
-import { useState } from "react";
+import './App.css';
+import { DropDownTree } from 'gbs-fwk-buildingblock';
+import { useState } from 'react';
 
 function App() {
   const [selectedValue, setSelectedValue] = useState();
   console.log(selectedValue);
 
   let data1 = [
-    { id: 1, name: "Discover Music" },
-    { id: 2, pid: 1, name: "Hot Singles" },
-    { id: 3, pid: 1, name: "Rising Artists" },
-    { id: 4, pid: 1, name: "Live Music" },
-    { id: 6, pid: 1, name: "Best of 2017 So Far" },
-    { id: 7, name: "Sales and Events" },
-    { id: 8, pid: 7, name: "100 Albums" },
-    { id: 9, pid: 7, name: "Hip-Hop and R&B Sale" },
-    { id: 10, pid: 7, name: "CD Deals" },
+    { id: 1, name: 'Discover Music' },
+    { id: 2, pid: 1, name: 'Hot Singles' },
+    { id: 3, pid: 1, name: 'Rising Artists' },
+    { id: 4, pid: 1, name: 'Live Music' },
+    { id: 6, pid: 1, name: 'Best of 2017 So Far' },
+    { id: 7, name: 'Sales and Events' },
+    { id: 8, pid: 7, name: '100 Albums' },
+    { id: 9, pid: 7, name: 'Hip-Hop and R&B Sale' },
+    { id: 10, pid: 7, name: 'CD Deals' },
   ];
-  let fields1: Object = { dataSource: data1, value: "name", text: "name" };
+  let fields1: Object = { dataSource: data1, value: 'name', text: 'name' };
 
   const handleOnChange = (args: any) => {
     setSelectedValue(args.value);
@@ -65,8 +65,8 @@ export default App;
 ##### Class Component
 
 ```jsx filename="App.tsx"
-import React from "react";
-import { DropDownTree } from "gbs-fwk-buildingblock";
+import React from 'react';
+import { DropDownTree } from 'gbs-fwk-buildingblock';
 
 class App extends React.Component {
   constructor(props) {
@@ -82,17 +82,17 @@ class App extends React.Component {
 
   render() {
     let data1 = [
-      { id: 1, name: "Discover Music" },
-      { id: 2, pid: 1, name: "Hot Singles" },
-      { id: 3, pid: 1, name: "Rising Artists" },
-      { id: 4, pid: 1, name: "Live Music" },
-      { id: 6, pid: 1, name: "Best of 2017 So Far" },
-      { id: 7, name: "Sales and Events" },
-      { id: 8, pid: 7, name: "100 Albums" },
-      { id: 9, pid: 7, name: "Hip-Hop and R&B Sale" },
-      { id: 10, pid: 7, name: "CD Deals" },
+      { id: 1, name: 'Discover Music' },
+      { id: 2, pid: 1, name: 'Hot Singles' },
+      { id: 3, pid: 1, name: 'Rising Artists' },
+      { id: 4, pid: 1, name: 'Live Music' },
+      { id: 6, pid: 1, name: 'Best of 2017 So Far' },
+      { id: 7, name: 'Sales and Events' },
+      { id: 8, pid: 7, name: '100 Albums' },
+      { id: 9, pid: 7, name: 'Hip-Hop and R&B Sale' },
+      { id: 10, pid: 7, name: 'CD Deals' },
     ];
-    let fields1 = { dataSource: data1, value: "name", text: "name" };
+    let fields1 = { dataSource: data1, value: 'name', text: 'name' };
 
     return (
       <div className="App">
