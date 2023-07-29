@@ -2,10 +2,7 @@
   "index": "Introduction",
   "gbs-fwk-buildingblock": "Gbs Fwk Building Block",
   "gbs-fwk-core": "Gbs Fwk Core",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
+  
   "contact": {
     "title": "Contact ↗",
     "type": "page",
