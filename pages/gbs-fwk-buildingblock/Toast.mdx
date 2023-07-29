@@ -1,0 +1,160 @@
+# Toast Box Component
+
+Toast component that can be used to select date input from the user.
+
+`<Toast />` uses an additional package called `gbs-fwk-core`. This package is already shipped with the `gbs-fwk-buildingblock ` so just import it as well.
+
+Add `<Toast />` Component to `App.tsx`[or wherever you prefer to add].
+
+```jsx filename="App.tsx"
+import { Toast } from 'gbs-fwk-buildingblock';
+
+function App() {
+  return (
+    <div className="App">
+      <Toast />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Props
+
+| Property        | Type    |
+| --------------- | ------- |
+| key             | string  |
+| type            | string  |
+| title           | string  |
+| content         | string  |
+| position        | object  |
+| showProgressBar | boolean |
+
+#### Types of Toasts
+
+There are three types of dialog types.
+
+1. `type: "alert" `: Produces a alert toast.
+2. `type: "warning`: Produces a warning toast.
+3. `type: "success`: Produces a success toast.
+
+#### Positions:
+
+##### X Positions
+
+1. Left
+2. Center
+3. Right
+
+##### Y Positions
+
+1. Top
+2. Bottom
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { messageService } from 'grampro-fwk-core';
+
+export default function DeleteAction() {
+  let subscription;
+  const handleOnClick = () => {
+    messageService.sendMessage({
+      key: 'bb_toast',
+      type: 'success', // type can be "alert", "warning", "success".
+      title: 'Success',
+      content: 'This is how a error look like!',
+      showProgressBar: 'true', // Shows a progress bar
+      position: { X: 'right', Y: 'bottom' }, // Position of the toast on Screen
+      timeOut: 2000, // add an optional timeOut to hide toast. default is 3000 ms
+    });
+  };
+
+  return (
+    <div>
+      <button onClick={handleOnClick}>Delete This!</button>
+    </div>
+  );
+}
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import React from 'react';
+import { messageService } from 'grampro-fwk-core';
+
+export default class DeleteAction extends React.Component {
+  handleOnClick = () => {
+    messageService.sendMessage({
+      key: 'bb_toast',
+      type: 'success', // type can be "alert", "warning", "success".
+      title: 'Success',
+      content: 'This is how a error look like!',
+      showProgressBar: 'true',
+      position: { X: 'right', Y: 'bottom' },
+      timeOut: 2000, // add an optional timeOut to hide toast. default is 3000 ms
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <div>Delete Action</div>
+        <button onClick={this.handleOnClick}>Delete This!</button>
+      </div>
+    );
+  }
+}
+```
+
+##### Styling Toast:
+
+• How to Customize the toast title?
+
+Use the following CSS to customize the default toast’s content properties like font-family, font-size and color.
+
+```css filename="App.css"
+*`/* To change color, font family and font size */*.e-toast-container .e-toast .e-toast-message .e-toast-title {
+      color: red;
+      font-size: 18px;
+      font-weight: bold;
+    }`
+```
+
+• How to Customize the toast content?
+
+Use the following CSS to customize the default toast’s content properties like font-family, font-size and color.
+
+```css filename="App.css"
+/* To change color, font family and font size */.e-toast-container .e-toast .e-toast-message .e-toast-content {
+      color: aqua;
+      font-size: 13px;
+      font-weight: normal;
+ }
+```
+
+• How to Customize the toast icon?
+
+Use the following CSS to customize the default toast icon color.
+
+```css filename="App.css"
+/* To change icon color */.e-toast-container .e-toast .e-toast-icon {
+      color: yellow;
+ }
+```
+
+• Customizing the toast background
+
+Use the following CSS to customize the default toast’s background color.
+
+```css filename="App.css"
+/* To change background color */.e-toast-container .e-toast {
+      background-color: navy;
+  }
+```
