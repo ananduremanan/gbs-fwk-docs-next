@@ -1,0 +1,38 @@
+# Custom Button Component
+
+Custom Button component that can be used to select date input from the user.
+
+## Props
+
+| Property  | Type                                             |
+| --------- | ------------------------------------------------ |
+| id        | string                                           |
+| value     | string                                           |
+| onClick   | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| className | string                                           |
+| name      | string                                           |
+| disabled  | boolean                                          |
+| type      | string (eg: "submit", "reset", "button")         |
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { CustomBtn } from 'building-blocks';
+
+function App() {
+  return (
+    // specifies the tag for render the MultiSelect component
+    <CustomBtn
+      id="id_90"
+      value="Submit"
+      type="submit"
+      className="btn-class"
+      onClick={onClick}
+    />
+  );
+}
+```

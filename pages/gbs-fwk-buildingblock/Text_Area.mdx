@@ -1,0 +1,76 @@
+# Text Area Component
+
+Text Area component that can be used to collect user input in Text Area.
+
+## Props
+
+| Property    | Type                                             |
+| ----------- | ------------------------------------------------ |
+| label       | string                                           |
+| value       | string                                           |
+| onChange    | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| disabled    | boolean                                          |
+| required    | boolean                                          |
+| className   | string                                           |
+| name        | string                                           |
+| placeholder | string                                           |
+| id          | any                                              |
+| rows        | number                                           |
+| cols        | number                                           |
+
+## Usage
+
+Here's an example of how to use the Text Box component:
+
+##### Functional Component
+
+```jsx filename="App.tsx"
+import { TextArea } from 'gbs-building-block';
+import { Component } from 'reat';
+
+class App extends Component{
+	render(){
+		<TextArea rows={8} cols={12} placeholder="TextArea goes here!" />
+	}
+}
+```
+
+##### Class Component
+
+```jsx filename="App.tsx"
+import React from 'react';
+import './App.css';
+import { TextArea } from 'gbs-fwk-buildingblock';
+
+interface AppState {
+  text: string;
+}
+
+class App extends React.Component<{}, AppState> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      text: '',
+    };
+  }
+
+  handleTextChange = (event: any) => {
+    this.setState({ text: event.target.value });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <TextArea
+          placeholder="Enter Your Text"
+          label="This Text is Simple"
+          onChange={this.handleTextChange}
+          value={this.state.text}
+        />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
