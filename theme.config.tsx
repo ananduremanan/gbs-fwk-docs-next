@@ -12,4 +12,11 @@ const config: DocsThemeConfig = {
   },
 };
 
+console.log(`%c _____   ____     _____ 
+/ ____|  |  _ \\  / ____|
+| |  __  | |_) | | (___  
+| | |_ | |  _ <   \\___ \\ 
+| |__| | | |_) |  ____) |
+ \\_____| |____/  |_____/ `, 'color: red');
+
 export default config;
