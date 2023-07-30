@@ -4,15 +4,16 @@ Custom Button.
 
 ## Props
 
-| Property  | Type                                             |
-| --------- | ------------------------------------------------ |
-| id        | string                                           |
-| value     | string                                           |
-| onClick   | (event: ChangeEvent`<HTMLInputElement>`) => void |
-| className | string                                           |
-| name      | string                                           |
-| disabled  | boolean                                          |
-| type      | string (eg: "submit", "reset", "button")         |
+| Property  | Type                                             | Description                                                         |
+| --------- | ------------------------------------------------ | ------------------------------------------------------------------- |
+| id        | string                                           | The unique identifier for the element                               |
+| value     | string                                           | The value of the element                                            |
+| onClick   | (event: ChangeEvent`<HTMLInputElement>`) => void | The event handler for when the element is clicked                   |
+| className | string                                           | The CSS class name(s) applied to the element                        |
+| name      | string                                           | The name of the element                                             |
+| disabled  | boolean                                          | Whether the element is disabled or not                              |
+| type      | string                                           | The type of the button, can be one of "submit", "reset" or "button" |
+
 
 ## Usage
 
@@ -20,7 +21,7 @@ Here's an example of how to use the Custom Button component:
 
 ##### Functional Component
 
-```jsx filename="App.tsx"
+```jsx copy filename="App.tsx"
 import { CustomBtn } from 'building-blocks';
 
 function App() {

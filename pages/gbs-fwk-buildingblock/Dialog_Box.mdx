@@ -6,7 +6,7 @@ Dialog Box component can be used to render a dialog box.
 
 Add `<Dialog />` Component to `App.tsx`[or wherever you prefer to add].
 
-```jsx filename="App.tsx"
+```jsx copy filename="App.tsx"
 import { Dialog } from 'gbs-fwk-buildingblock';
 
 function App() {
@@ -22,16 +22,16 @@ export default App;
 
 ## Props
 
-| Property     | Type   |
-| ------------ | ------ |
-| key          | string |
-| type         | string |
-| title        | string |
-| content      | string |
-| position     | object |
-| okButton     | object |
-| cancelButton | object |
-| width        | string |
+| Property     | Type   | Description                                  |
+| ------------ | ------ | -------------------------------------------- |
+| key          | string | The unique identifier for the dialog box     |
+| type         | string | The type of the dialog box                   |
+| title        | string | The title of the dialog box                  |
+| content      | string | The content of the dialog box                |
+| position     | object | The position of the dialog box on the screen |
+| okButton     | object | The configuration for the "OK" button        |
+| cancelButton | object | The configuration for the "Cancel" button    |
+| width        | string | The width of the dialog box                  |
 
 #### Types of Dialogs
 
@@ -46,7 +46,7 @@ Here's an example of how to use the Dialog Box component:
 
 ##### Functional Component
 
-```jsx filename="App.tsx"
+```jsx copy filename="App.tsx"
 import { messageService } from 'gbs-fwk-core';
 
 export default function DeleteAction() {
@@ -88,7 +88,7 @@ export default function DeleteAction() {
 
 ##### Class Component
 
-```jsx filename="App.tsx"
+```jsx copy filename="App.tsx"
 import React from 'react';
 import { messageService } from 'gbs-fwk-core';
 

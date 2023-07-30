@@ -4,14 +4,14 @@ Date Picker component that can be used to select date input from the user.
 
 ## Props
 
-| Property    | Type                                             |
-| ----------- | ------------------------------------------------ |
-| placeholder | string                                           |
-| value       | Date                                             |
-| onChange    | (event: ChangeEvent`<HTMLInputElement>`) => void |
-| className   | string                                           |
-| name        | string                                           |
-| disabled    | boolean                                          |
+| Property    | Type                                             | Description                                                     |
+| ----------- | ------------------------------------------------ | --------------------------------------------------------------- |
+| placeholder | string                                           | The placeholder text displayed in the input field               |
+| value       | Date                                             | The value of the input field, as a Date object                  |
+| onChange    | (event: ChangeEvent`<HTMLInputElement>`) => void | The event handler for when the value of the input field changes |
+| className   | string                                           | The CSS class name(s) applied to the input field                |
+| name        | string                                           | The name of the input field                                     |
+| disabled    | boolean                                          | Whether the input field is disabled or not                      |
 
 ## Usage
 
@@ -19,7 +19,7 @@ Here's an example of how to use the Date Picker component:
 
 ##### Functional Component
 
-```jsx filename="App.tsx"
+```jsx copy filename="App.tsx"
 import React from 'react';
 import './App.css';
 import { DatePicker } from 'gbs-fwk-buildingBlock';
@@ -46,7 +46,7 @@ export default App;
 
 ##### Class Component
 
-```jsx filename="App.tsx"
+```jsx copy filename="App.tsx"
 import React from 'react';
 import './App.css';
 import { DatePicker } from 'gbs-fwk-buildingblock';

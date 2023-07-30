@@ -4,21 +4,21 @@ Drop Down component that can be used to render a custom Drop Down and receive in
 
 ## Props
 
-| Property       | Type                                             |
-| -------------- | ------------------------------------------------ |
-| className      | string                                           |
-| id             | any                                              |
-| label          | string                                           |
-| name           | string                                           |
-| disabled       | boolean                                          |
-| onChange       | (event: ChangeEvent`<HTMLInputElement>`) => void |
-| dataSource     | any []                                           |
-| fields         | object                                           |
-| sortOrder      | any                                              |
-| placeholder    | string                                           |
-| allowFiltering | boolean                                          |
-| popupHeight    | string                                           |
-| autofill       | boolean                                          |
+| Property       | Type                                             | Description                                                  |
+| -------------- | ------------------------------------------------ | ------------------------------------------------------------ |
+| className      | string                                           | The CSS class name(s) applied to the dropdown                |
+| id             | any                                              | The unique identifier for the dropdown                       |
+| label          | string                                           | The label for the dropdown                                   |
+| name           | string                                           | The name of the dropdown                                     |
+| disabled       | boolean                                          | Whether the dropdown is disabled or not                      |
+| onChange       | (event: ChangeEvent`<HTMLInputElement>`) => void | The event handler for when the value of the dropdown changes |
+| dataSource     | any []                                           | The data source for the dropdown options                     |
+| fields         | object                                           | The fields to display in the dropdown options                |
+| sortOrder      | any                                              | The sort order for the dropdown options                      |
+| placeholder    | string                                           | The placeholder text displayed in the dropdown               |
+| allowFiltering | boolean                                          | Whether filtering is allowed in the dropdown                 |
+| popupHeight    | string                                           | The height of the popup displaying the dropdown options      |
+| autofill       | boolean                                          | Whether autofill is enabled for the dropdown                 |
 
 ## Usage
 
@@ -26,7 +26,7 @@ Here's an example of how to use the Drop Down component:
 
 ##### Functional Component
 
-```jsx filename="App.tsx"
+```jsx copy filename="App.tsx"
 import { useState } from 'react';
 import './App.css';
 import { DropDown } from 'gbs-building-block';
@@ -77,7 +77,7 @@ export default App;
 
 ##### Class Component
 
-```jsx filename="App.tsx"
+```jsx copy filename="App.tsx"
 import React from 'react';
 import './App.css';
 import { DropDown } from 'gbs-building-block';
