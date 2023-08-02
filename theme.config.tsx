@@ -1,10 +1,19 @@
 import React from 'react';
 import { DocsThemeConfig } from 'nextra-theme-docs';
+import { useRouter } from 'next/router';
 
 const config: DocsThemeConfig = {
   logo: <span>GBS FrameWork Docs</span>,
   project: {
     link: 'https://github.com/ananduremanan/gbs-fwk-docs-next',
+  },
+  useNextSeoProps() {
+    const { route } = useRouter();
+    if (route !== '/') {
+      return {
+        titleTemplate: '%s – Gbs Docs',
+      };
+    }
   },
   docsRepositoryBase: 'https://github.com/ananduremanan/gbs-fwk-docs-next',
   footer: {
@@ -12,11 +21,14 @@ const config: DocsThemeConfig = {
   },
 };
 
-console.log(`%c _____   ____     _____ 
+console.log(
+  `%c _____   ____     _____ 
 / ____|  |  _ \\  / ____|
 | |  __  | |_) | | (___  
 | | |_ | |  _ <   \\___ \\ 
 | |__| | | |_) |  ____) |
- \\_____| |____/  |_____/ `, 'color: red');
+ \\_____| |____/  |_____/ `,
+  'color: red'
+);
 
 export default config;
