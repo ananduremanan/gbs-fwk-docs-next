@@ -187,8 +187,13 @@ export default App;
 
 #### Live Sample
 
+See how it looks in live, feel free to play around with code.
+
+<br />
+
 import React, { useEffect } from 'react';
 import sdk from '@stackblitz/sdk';
+import styles from '../../components/Grid.module.css';
 
 export const GridLive = () => {
   useEffect(() => {
@@ -198,13 +203,14 @@ export const GridLive = () => {
       clickToLoad: false,
       hideExplorer: true,
       hideNavigation: true,
+      terminalHeight: 100,
     });
   }, []);
 
 return (
 
 <div>
-  <div id="elementOrId"></div>
+  <div id="elementOrId" className={styles.elementOrId}></div>
 </div>
 ); }
 

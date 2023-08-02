@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import sdk from '@stackblitz/sdk';
-import './App.css';
+import styles from './grid-live.module.css';
 
 function GridLive() {
   useEffect(() => {
@@ -21,6 +21,6 @@ function GridLive() {
   );
 }
 
-export default function () {
+export default function App() {
   return <GridLive />;
 }
