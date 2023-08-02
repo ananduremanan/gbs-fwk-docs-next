@@ -197,13 +197,15 @@ import styles from '../../components/Grid.module.css';
 
 export const GridLive = () => {
   useEffect(() => {
+    const themeVal = localStorage.getItem('theme');
     sdk.embedProjectId('elementOrId', 'vitejs-vite-vvfyap', {
       forceEmbedLayout: true,
       openFile: 'src/App.tsx',
       clickToLoad: false,
       hideExplorer: true,
       hideNavigation: true,
-      terminalHeight: 100,
+      terminalHeight: 20,
+      theme: `${themeVal}`
     });
   }, []);
 
