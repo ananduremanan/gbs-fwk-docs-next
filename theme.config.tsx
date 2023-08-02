@@ -15,7 +15,8 @@ const config: DocsThemeConfig = {
       };
     }
   },
-  docsRepositoryBase: 'https://github.com/ananduremanan/gbs-fwk-docs-next',
+  docsRepositoryBase:
+    'https://github.com/ananduremanan/gbs-fwk-docs-next/blob/main',
   footer: {
     text: 'GBS Framework Documentation © 2023',
   },
