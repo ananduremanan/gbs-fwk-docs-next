@@ -4,15 +4,17 @@ Grid component uses syncfusion's Grid to render a grid.
 
 ## Props
 
-| Property    | Type    |
-| ----------- | ------- |
-| pageSize    | number  |
-| dateSourec  | any     |
-| className   | string  |
-| columnName  | string  |
-| className   | string  |
-| allowPaging | boolean |
-| columns     | any []  |
+| Property           | Type    | Description                                                                    |
+| ------------------ | ------- | ------------------------------------------------------------------------------ |
+| pageSize           | number  | Specifies the number of rows to be displayed on each page of the grid.         |
+| dataSource         | any     | Specifies the data source for the grid.                                        |
+| className          | string  | Specifies the CSS class name to be applied to the grid element.                |
+| columnName         | string  | Specifies the name of the column to be used for filtering or searching.        |
+| allowPaging        | boolean | Specifies whether or not to enable paging in the grid.                         |
+| columns            | any[]   | Specifies an array of column definitions for the grid.                         |
+| allowGenericSearch | boolean | Specifies whether or not to enable a generic search bar in the grid toolbar.   |
+| allowColumnSearch  | boolean | Specifies whether or not to enable column-specific filtering in the grid.      |
+| allowExcelExport   | boolean | Specifies whether or not to enable an Excel export button in the grid toolbar. |
 
 ## Usage
 
@@ -79,6 +81,10 @@ function App() {
                   dataSource={dataSource}
                   allowPaging={true}
                   columns={columns}
+                  allowExcelExport={true} // This will enable an excel export option
+                  id={'grid'} // make sure to add id as 'grid'
+                  allowGenericSearch={true} // This will enable a generic serach
+                  allowColumnSearch={true} // column wise searching
                 />
               </div>
             </div>
@@ -158,6 +164,10 @@ class App extends React.Component {
                     dataSource={this.state.dataSource}
                     allowPaging={true}
                     columns={this.columns}
+                    allowExcelExport={true} // This will enable an excel export option
+                  id={'grid'} // make sure to add id as 'grid'
+                  allowGenericSearch={true} // This will enable a generic serach
+                  allowColumnSearch={true} // column wise searching
                   />
                 </div>
               </div>
