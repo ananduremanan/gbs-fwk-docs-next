@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import sdk from '@stackblitz/sdk';
 import './App.css';
 
-export default function App() {
+function GridLive() {
   useEffect(() => {
     sdk.embedProjectId('elementOrId', 'vitejs-vite-vvfyap', {
       forceEmbedLayout: true,
@@ -19,4 +19,8 @@ export default function App() {
       <div id="elementOrId"></div>
     </div>
   );
+}
+
+export default function () {
+  return <GridLive />;
 }
