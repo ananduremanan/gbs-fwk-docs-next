@@ -184,36 +184,3 @@ class App extends React.Component {
 
 export default App;
 ```
-
-#### Live Sample
-
-See how it looks in live, feel free to play around with code.
-
-<br />
-
-import React, { useEffect } from 'react';
-import sdk from '@stackblitz/sdk';
-import styles from '../../components/Grid.module.css';
-
-export const GridLive = () => {
-  useEffect(() => {
-    const themeVal = localStorage.getItem('theme');
-    sdk.embedProjectId('elementOrId', 'vitejs-vite-vvfyap', {
-      forceEmbedLayout: true,
-      openFile: 'src/App.tsx',
-      clickToLoad: false,
-      hideExplorer: true,
-      hideNavigation: true,
-      terminalHeight: 20,
-      theme: `${themeVal}`
-    });
-  }, []);
-
-return (
-
-<div>
-  <div id="elementOrId" className={styles.elementOrId}></div>
-</div>
-); }
-
-<GridLive />
