@@ -35,7 +35,7 @@ function CheckBox() {
 
   return (
     <div>
-      <CheckBox label="Check me" checked={checked} change={handleCheck} />
+      <CheckBox label="Check me" checked={checked} OnChange={handleCheck} />
       <p>Checked: {checked ? 'Yes' : 'No'}</p>
     </div>
   );
@@ -67,7 +67,7 @@ class CheckBox extends React.Component {
         <CheckBox
           label="Check me"
           checked={this.state.checked}
-          change={this.handleCheck}
+          OnChange={this.handleCheck}
         />
         <p>Checked: {this.state.checked ? 'Yes' : 'No'}</p>
       </div>
