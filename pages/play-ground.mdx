@@ -14,7 +14,8 @@ export const GridLive = () => {
     function getSystemTheme() {
       if (
         window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('theme') === "dark";
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ||
+          localStorage.getItem('theme') === 'dark')
       ) {
         themeVal = 'dark';
       } else {
@@ -22,7 +23,6 @@ export const GridLive = () => {
       }
     }
     getSystemTheme();
-    // const themeVal = localStorage.getItem('theme');
     sdk.embedProjectId('elementOrId', 'vitejs-vite-vvfyap', {
       forceEmbedLayout: true,
       openFile: 'src/App.tsx',
