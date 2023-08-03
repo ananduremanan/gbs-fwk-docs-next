@@ -23,30 +23,57 @@ Here's an example of how to use the Check Box component:
 ##### Functional Component
 
 ```jsx copy filename="App.tsx"
-import { CheckBox } from 'building-blocks';
-import './App.css';
+import React, { useState } from 'react';
+import { CheckBox } from 'gbs-fwk-buildingblock';
 
-function App() {
+function CheckBox() {
+  const [checked, setChecked] = useState < Boolean > false;
+
+  const handleCheck = (event: any) => {
+    setChecked(event.checked);
+  };
+
   return (
-    // specifies the tag for render the Selector component
-    <CheckBox label="Select your Account Type" checked={true} />
+    <div>
+      <CheckBox label="Check me" checked={checked} change={handleCheck} />
+      <p>Checked: {checked ? 'Yes' : 'No'}</p>
+    </div>
   );
 }
+
+export default CheckBox;
 ```
 
 ##### Class Component
 
 ```jsx copy filename="App.tsx"
-import { CheckBox } from 'building-blocks';
-import './App.css';
 import React from 'react';
+import { CheckBox } from 'gbs-fwk-buildingblock';
 
-class App extends React.Component {
+class CheckBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { checked: false };
+    this.handleCheck = this.handleCheck.bind(this);
+  }
+
+  handleCheck(event) {
+    this.setState({ checked: event.checked });
+  }
+
   render() {
     return (
-      // specifies the tag for render the Selector component
-      <CheckBox label="Select your Account Type" />
+      <div>
+        <CheckBox
+          label="Check me"
+          checked={this.state.checked}
+          change={this.handleCheck}
+        />
+        <p>Checked: {this.state.checked ? 'Yes' : 'No'}</p>
+      </div>
     );
   }
 }
+
+export default CheckBox;
 ```
