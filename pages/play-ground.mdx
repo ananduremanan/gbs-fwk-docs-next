@@ -10,7 +10,19 @@ import styles from '../components/Grid.module.css';
 
 export const GridLive = () => {
   useEffect(() => {
-    const themeVal = localStorage.getItem('theme');
+    let themeVal = '';
+    function getSystemTheme() {
+      if (
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('theme') === "dark";
+      ) {
+        themeVal = 'dark';
+      } else {
+        themeVal = 'light';
+      }
+    }
+    getSystemTheme();
+    // const themeVal = localStorage.getItem('theme');
     sdk.embedProjectId('elementOrId', 'vitejs-vite-vvfyap', {
       forceEmbedLayout: true,
       openFile: 'src/App.tsx',
