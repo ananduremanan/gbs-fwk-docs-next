@@ -26,8 +26,8 @@ Here's an example of how to use the Check Box component:
 import React, { useState } from 'react';
 import { CheckBox } from 'gbs-fwk-buildingblock';
 
-function CheckBox() {
-  const [checked, setChecked] = useState < Boolean > false;
+function App() {
+  const [checked, setChecked] = useState(false);
 
   const handleCheck = (event: any) => {
     setChecked(event.checked);
@@ -50,7 +50,7 @@ export default CheckBox;
 import React from 'react';
 import { CheckBox } from 'gbs-fwk-buildingblock';
 
-class CheckBox extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { checked: false };
