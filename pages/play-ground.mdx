@@ -18,16 +18,15 @@ export const GridLive = () => {
       hideExplorer: true,
       hideNavigation: true,
       terminalHeight: 20,
-      theme: `${themeVal}`
+      theme: `${themeVal}`,
     });
   }, []);
-
-return (
-
-<div>
-  <div id="elementOrId" className={styles.elementOrId}></div>
-</div>
-); }
+  return (
+    <div>
+      <div id="elementOrId" className={styles.elementOrId}></div>
+    </div>
+  );
+};
 
 <GridLive />
 
