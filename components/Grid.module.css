@@ -6,3 +6,9 @@
   border-radius: 0.5rem;
   border: 0.5px solid rgba(128, 128, 128, 0.19);
 }
+
+.warningCard {
+  background-color: rgba(255, 0, 0, 0.252);
+  padding: 1rem;
+  border-radius: 1rem;
+}
