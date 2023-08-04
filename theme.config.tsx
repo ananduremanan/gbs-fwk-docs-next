@@ -18,7 +18,15 @@ const config: DocsThemeConfig = {
   docsRepositoryBase:
     'https://github.com/ananduremanan/gbs-fwk-docs-next/blob/main',
   footer: {
-    text: 'GBS Framework Documentation © 2023',
+    text: (
+      <span>
+        Gbs Fwk Docs {new Date().getFullYear()} ©{' '}
+        <a href="https://gramproindia.com" target="_blank">
+          GBS
+        </a>
+        .
+      </span>
+    ),
   },
 };
 
