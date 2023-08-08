@@ -4,16 +4,16 @@ Check Box component that can be used to render a custom check box and receive in
 
 ## Props
 
-| Property       | Type                                             |
-| -------------- | ------------------------------------------------ |
-| className      | string                                           |
-| id             | any                                              |
-| label          | string                                           |
-| name           | string                                           |
-| onChange       | (event: ChangeEvent`<HTMLInputElement>`) => void |
-| dataSource     | any []                                           |
-| fields         | object                                           |
-| placeholder    | string                                           |
+| Property    | Type                                             |
+| ----------- | ------------------------------------------------ |
+| className   | string                                           |
+| id          | any                                              |
+| label       | string                                           |
+| name        | string                                           |
+| onChange    | (event: ChangeEvent`<HTMLInputElement>`) => void |
+| dataSource  | any []                                           |
+| fields      | object                                           |
+| placeholder | string                                           |
 
 ## Usage
 
@@ -22,34 +22,48 @@ Here's an example of how to use the Text Box component:
 ##### Functional Component
 
 ```jsx copy filename="App.tsx"
-import { MultiSelectDropdown } from "building-blocks";
-import { MultiSelectDropdown } from "gbs-fwk-buildinblock";
+import { useState, useEffect } from "react";
+import { MultiSelectDropdown } from "gbs-fwk-buildingblock";
+import "./app.css";
 
-function App() {
-  let data: any[] = [
-    { Name: "Australia", Code: "AU" },
-    { Name: "Bermuda", Code: "BM" },
-    { Name: "Canada", Code: "CA" },
-    { Name: "Cameroon", Code: "CM" },
-    { Name: "Denmark", Code: "DK" },
-  ];
+interface multiSelectProps {
+  data: any[];
+}
 
-  let fields = { text: "Name", value: "Code" };
+const App = (props: multiSelectProps) => {
+  const [data, setData] = useState<any[]>([]);
+  const [selectedValues, setSelectedValues] = useState<any[]>([]);
 
-  let value: any = ["CM", "DK"]; // can set multiple default values/single one
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("https://api.npoint.io/baab7e29aec56b6d27d9");
+        const data = await res.json();
+        setData(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const fields: any = { text: "Name", value: "Code" };
+
+  const onChange = (args: any) => {
+    setSelectedValues(args.value);
+  };
 
   return (
-    <div className="App">
-      <h1>Testing Ground</h1>
+    <div style={{ margin: "10rem" }}>
       <MultiSelectDropdown
         dataSource={data}
         fields={fields}
-        value={value}
-        mode="CheckBox"
+        change={onChange}
+        value={selectedValues}
       />
     </div>
   );
-}
+};
 
 export default App;
 ```
@@ -57,37 +71,57 @@ export default App;
 ##### Class Component
 
 ```jsx copy filename="App.tsx"
-import React from "react";
-import { MultiSelectDropdown } from "building-blocks";
-import { MultiSelectDropdown } from "gbs-fwk-buildinblock";
+import { Component } from 'react';
+import { MultiSelectDropdown } from 'gbs-fwk-buildingblock';
+import './app.css';
 
-class App extends React.Component {
-  data = [
-    { Name: "Australia", Code: "AU" },
-    { Name: "Bermuda", Code: "BM" },
-    { Name: "Canada", Code: "CA" },
-    { Name: "Cameroon", Code: "CM" },
-    { Name: "Denmark", Code: "DK" },
-  ];
+interface multiSelectState {
+  data: any[];
+  selectedValues: any[];
+}
 
-  fields = { text: "Name", value: "Code" };
+export default class app extends Component<{}, multiSelectState> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      data: [],
+      selectedValues: [],
+    };
+  }
 
-  value = ["CM", "DK"];
+  componentDidMount(): void {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('https://api.npoint.io/baab7e29aec56b6d27d9');
+        const data = await res.json();
+        this.setState({ data: data });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }
+
+  fields: any = { text: 'Name', value: 'Code' };
+
+  onChange = (args: any) => {
+    this.setState({ selectedValues: args.value });
+  };
 
   render() {
+    const { data, selectedValues } = this.state;
+    console.log(selectedValues);
+
     return (
-      <div className="App">
-        <h1>Testing Ground</h1>
+      <div style={{ margin: '10rem' }}>
         <MultiSelectDropdown
-          dataSource={this.data}
+          dataSource={data}
           fields={this.fields}
-          value={this.value}
-          mode="CheckBox"
+          onChange={this.onChange}
+          value={selectedValues}
         />
       </div>
     );
   }
 }
-
-export default App;
 ```
