@@ -184,20 +184,9 @@ class App extends React.Component {
 
 export default App;
 ```
-
 <br />
-import styles from '../../components/Grid.module.css'; import Link from 'next/link';
-<div className={styles.warningCard}>
-  <b>
-    <span>💡 NB: </span>The following note is only applicable for React
-    Functional Components
-  </b>
-  <br />
-  <br />
-  In React functional components the asynchronous behavior of the useState hook may
-  cause some anomalies which are normal for the performance improvement of react
-  app. While having custom templates in `grid` component react may arise such issues.
-  Fixes for such issues can be found <Link href="https://github.com/ananduremanan/gbs-fwk-docs-next/issues">
-    <u>Here</u>
-  </Link>.
-</div>
+import styles from '../../components/Grid.module.css';
+import Link from 'next/link';
+ 
+<div className={styles.warningCard}><b><span>💡 NB: </span>The following note is only applicable for React Functional Components</b><br /><br />
+In React functional components the asynchronous behavior of the useState hook may cause some anomalies which are normal for the performance improvement of react app.  While having custom templates in `grid` component react may arise such issues. Fixes for such issues can be found <Link href="https://github.com/ananduremanan/gbs-fwk-docs-next/issues"><u>Here</u></Link>.</div>
