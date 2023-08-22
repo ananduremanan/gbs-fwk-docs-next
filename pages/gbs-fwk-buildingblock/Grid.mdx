@@ -100,6 +100,7 @@ function App() {
                   selectedRows={(rows: any) => {setRowsFunction(() => rows)}} // callback for selected rows
                 />
               </div>
+              <button onClick={getRows}>GET ROWS</button>
             </div>
           </div>
         </form>
@@ -193,6 +194,7 @@ class App extends React.Component {
                   />
                 </div>
               </div>
+              <button onClick={getRows}>GET ROWS</button>
             </div>
           </form>
         </div>
