@@ -16,6 +16,8 @@ Grid component uses syncfusion's Grid to render a grid.
 | allowColumnSearch  | boolean | Specifies whether or not to enable column-specific filtering in the grid.                                                                          |
 | allowExcelExport   | boolean | Specifies whether or not to enable an Excel export button in the grid toolbar.                                                                     |
 | excelFileName      | string  | Specifies the custom file name for the downloaded Excel file <br /><br /> <h4>⚠ This is a filename, so try to keep the file naming standards </h4> |
+|allowCheckBox | boolean | enables global checkbox in grid |
+|selectedRows| any | callback for selected rows |
 
 ## Usage
 
@@ -32,6 +34,13 @@ import data from './data/data.json'; // JSON file for fetching the data
 function App() {
   // State to store DataSource
   const [dataSource, setDataSource] = useState(data);
+  const [rowsFunction, setRowsFunction] = useState<any>(() => {});
+
+  // function for triggering callback
+  const getRows = () => {
+    const selectedRowsData = rowsFunction(); // Invoke the callback to get selected row data
+    console.log("Selected Rows Data:", selectedRowsData);
+  };
 
   const handleOnchange = (event: any, props: any) => {
     const newData = [...dataSource];
@@ -57,7 +66,7 @@ function App() {
 
   // Grid
   const columns = [
-    { field: 'OrderID', width: '200', textAlign: 'Right' },
+    { field: 'OrderID', width: '200', textAlign: 'Right', isPrimaryKey = true },
     { field: 'CustomerID', width: '100' },
     { field: 'EmployeeID', width: '100', textAlign: 'Right' },
     {
@@ -87,6 +96,8 @@ function App() {
                   allowGenericSearch={true} // This will enable a generic serach
                   allowColumnSearch={true} // column wise searching
                   excelFileName={'My_Custom_Excel'} // ⚠ This is a filename, so try to keep the file naming standards
+                  allowCheckBox={true} // for showing a global checkbox to all rows
+                  selectedRows={(rows: any) => {setRowsFunction(() => rows)}} // callback for selected rows
                 />
               </div>
             </div>
@@ -116,6 +127,12 @@ class App extends React.Component {
     };
   }
 
+  // function for triggering callback
+  const getRows = () => {
+    const selectedRowsData = rowsFunction(); // Invoke the callback to get selected row data
+    console.log("Selected Rows Data:", selectedRowsData);
+  };
+
   handleOnchange = (event, props) => {
     const newData = [...this.state.dataSource];
     const itemIndex = newData.findIndex(
@@ -140,7 +157,7 @@ class App extends React.Component {
 
   // Grid
   columns = [
-    { field: 'OrderID', width: '200', textAlign: 'Right' },
+    { field: 'OrderID', width: '200', textAlign: 'Right', isPrimaryKey = true },
     { field: 'CustomerID', width: '100' },
     { field: 'EmployeeID', width: '100', textAlign: 'Right' },
     {
@@ -171,6 +188,8 @@ class App extends React.Component {
                     allowGenericSearch={true} // This will enable a generic serach
                     allowColumnSearch={true} // column wise searching
                     excelFileName={'My_Custom_Excel'} // ⚠ This is a filename, so try to keep the file naming standards
+                    allowCheckBox={true} // for showing a global checkbox to all rows
+                    selectedRows={(rows: any) => {setRowsFunction(() => rows)}} // callback for selected rows
                   />
                 </div>
               </div>
