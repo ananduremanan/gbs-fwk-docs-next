@@ -121,18 +121,17 @@ import React from 'react';
 import data from './data/data.json'; // JSON file for fetching the data
 
 class App extends React.Component {
+  selectedRows: any;
   constructor(props) {
     super(props);
     this.state = {
       dataSource: data,
-      rowsFunction: () => {},
     };
   }
 
   // function for triggering callback
   const getRows = () => {
-    const selectedRowsData = rowsFunction(); // Invoke the callback to get selected row data
-    console.log("Selected Rows Data:", selectedRowsData);
+    console.log("Selected Rows Data:", selectedRows);
   };
 
   handleOnchange = (event, props) => {
@@ -191,7 +190,7 @@ class App extends React.Component {
                     allowColumnSearch={true} // column wise searching
                     excelFileName={'My_Custom_Excel'} // ⚠ This is a filename, so try to keep the file naming standards
                     allowCheckBox={true} // for showing a global checkbox to all rows
-                    selectedRows={(rows: any) => {setRowsFunction(() => rows)}} // callback for selected rows
+                    selectedRows={(rows: any) => { this.selectedRows = rows }} // callback for selected rows
                   />
                 </div>
               </div>
