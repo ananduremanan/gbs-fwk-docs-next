@@ -18,6 +18,7 @@ Grid component uses syncfusion's Grid to render a grid.
 | excelFileName      | string  | Specifies the custom file name for the downloaded Excel file <br /><br /> <h4>⚠ This is a filename, so try to keep the file naming standards </h4> |
 |allowCheckBox | boolean | enables global checkbox in grid |
 |selectedRows| any | callback for selected rows |
+|onRefresh| function | Refresh the grid |
 
 ## Usage
 
@@ -205,6 +206,31 @@ class App extends React.Component {
 
 export default App;
 ```
+
+## How to guides
+
+- How to Refresh the grid?
+  
+  Sometimes the grid need to refresh to take place the new changes. For this we can use the onRefresh prop to force refresh the grid. Here is how you can do it.
+
+  ```jsx copy
+  // Add a state to hold the call back
+  const [refreshFunction, setRefreshFunction] = useState<any>(() => {});
+
+  //Add a function to execute the callback from the grid
+  const handleRefresh = () => {
+    refreshFunction();
+  };
+  
+  // Add the onRefresh prop to the grid
+  <Grid
+    dataSource={dataSource}
+    columns={columns}
+    id={"grid"}
+    onRefresh={(refresh: any) => {setRefreshFunction(() => refresh);}}  // Add this
+  />
+  ``` 
+
 <br />
 import styles from '../../components/Grid.module.css';
 import Link from 'next/link';
