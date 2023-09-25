@@ -19,6 +19,7 @@ Grid component uses syncfusion's Grid to render a grid.
 |allowCheckBox | boolean | enables global checkbox in grid |
 |selectedRows| any | callback for selected rows |
 |onRefresh| function | Refresh the grid |
+|selectionDisable| any []| sets rows disabled in checkbox select all|
 
 ## Usage
 
@@ -228,6 +229,23 @@ export default App;
     columns={columns}
     id={"grid"}
     onRefresh={(refresh: any) => {setRefreshFunction(() => refresh);}}  // Add this
+  />
+  ``` 
+- How to Add disabled checkbox in select all?
+
+  In order to disable certain rows in a grid, an array of objects should be passed as a prop. Each object in the array should contain the column name and the id of the row that you wish to disable. 
+  
+  ```jsx copy
+  <Grid
+    dataSource={data}
+    id={"grid"}
+    allowCheckBox={true}
+    columns={columns}
+    selectionDisable={[
+          { colName: "OrderID", colId: 10254 },
+          { colName: "OrderID", colId: 10251 },
+          { colName: "OrderID", colId: 10257 },
+        ]}
   />
   ``` 
 
