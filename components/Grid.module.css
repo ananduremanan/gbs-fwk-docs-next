@@ -12,3 +12,11 @@
   padding: 1rem;
   border-radius: 1rem;
 }
+
+.outDated {
+  color: red;
+  font-size: 0.8rem;
+  background-color: rgb(255, 211, 154);
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+}
