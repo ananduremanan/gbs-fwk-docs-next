@@ -1,9 +1,17 @@
 import React from 'react';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router';
+import styles from './components/Grid.module.css';
 
 const config: DocsThemeConfig = {
-  logo: <span>GBS FrameWork Docs</span>,
+  logo: (
+    <span>
+      GBS FrameWork Docs <br />
+      <span className={styles.outDated}>
+        ** Warning ! This Documentation is OutDated. **
+      </span>
+    </span>
+  ),
   project: {
     link: 'https://github.com/ananduremanan/gbs-fwk-docs-next',
   },
