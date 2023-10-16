@@ -1,34 +1,34 @@
-import React from 'react';
-import { DocsThemeConfig } from 'nextra-theme-docs';
-import { useRouter } from 'next/router';
-import styles from './components/Grid.module.css';
+import React from "react";
+import { DocsThemeConfig } from "nextra-theme-docs";
+import { useRouter } from "next/router";
 
 const config: DocsThemeConfig = {
+  banner: {
+    key: "docs-launch",
+    text: <div style={{ color: "red" }}>⚠ Warning !!! This Documentation Is Outdated</div>,
+  },
   logo: (
     <span>
       GBS FrameWork Docs <br />
-      <span className={styles.outDated}>
-        ** Warning ! This Documentation is OutDated. **
-      </span>
     </span>
   ),
   project: {
-    link: 'https://github.com/ananduremanan/gbs-fwk-docs-next',
+    link: "https://github.com/ananduremanan/gbs-fwk-docs-next",
   },
   useNextSeoProps() {
     const { route } = useRouter();
-    if (route !== '/') {
+    if (route !== "/") {
       return {
-        titleTemplate: '%s – Gbs Docs',
+        titleTemplate: "%s – Gbs Docs",
       };
     }
   },
   docsRepositoryBase:
-    'https://github.com/ananduremanan/gbs-fwk-docs-next/blob/main',
+    "https://github.com/ananduremanan/gbs-fwk-docs-next/blob/main",
   footer: {
     text: (
       <span>
-        Gbs Fwk Docs {new Date().getFullYear()} ©{' '}
+        Gbs Fwk Docs {new Date().getFullYear()} ©{" "}
         <a href="https://gramproindia.com" target="_blank">
           GBS
         </a>
@@ -45,7 +45,7 @@ console.log(
 | | |_ | |  _ <   \\___ \\ 
 | |__| | | |_) |  ____) |
  \\_____| |____/  |_____/ `,
-  'color: red'
+  "color: red"
 );
 
 export default config;
