@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 
 const config: DocsThemeConfig = {
   banner: {
-    key: "docs-launch",
+    key: "outdated-warning",
+    dismissible: false,
     text: <div style={{ color: "red" }}>⚠ Warning !!! This Documentation Is Outdated</div>,
   },
   logo: (
