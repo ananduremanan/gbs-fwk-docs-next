@@ -1,0 +1,66 @@
+# Modal Component
+
+Modal Component Provides an alternative popup. You can still use the existing Dialog Box component and Popoup component.
+
+## Props
+
+| Property      | Type     | Description                                                       |
+| ------------- | -------- | ----------------------------------------------------------------- |
+| isOpen        | state    | Defines the Modal is open or not                                  |
+| setIsOpen     | SetState | State Setter to close Modal                                       |
+| onButtonClick | method   | returns the action(Two values: Action_1 for Yes, Action_2 for No) |
+| title         | string   | Title for the Modal                                               |
+
+## Usage
+
+Here's an example of how to use the Modal component:
+
+##### Functional Component
+
+```jsx copy filename="App.tsx"
+import React from 'react';
+import './App.css';
+import { Modal } from 'gbs-fwk-buildingblock';
+
+function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleButtonClick = (action: any) => {
+    console.log(`${action} button was clicked`);
+    if (action === 'Action_1') {
+      if (typeof props.onDelete === 'function') {
+        props.onDelete(deletionId);
+      }
+    }
+  };
+
+  const handleDelete = (args: any) => {
+    setIsOpen(true);
+  };
+
+  return (
+    <>
+      <Modal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        onButtonClick={handleButtonClick}
+        title={'Are Your Sure'}
+      >
+        <p>This is Will Delete All your Data!!! Still want to delete?</p>
+      </Modal>
+      <Button value="Delete" onChange={handleDelete} />
+    </>
+  );
+}
+
+export default App;
+```
+
+#### Styling Modal
+
+- gbs-modal-container : Modal Container Class
+- gbs-modal-title: Modal Title Class
+- gbs-modal-content: Modal Content class
+- gbs-modal-buttons: Modal Button Class
+- gbs-modal-buttons-action1: Modal Button action1 class
+- gbs-modal-buttons-action2: Modal Button action2 class
