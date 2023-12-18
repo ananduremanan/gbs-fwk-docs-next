@@ -14,12 +14,12 @@ const config: DocsThemeConfig = {
     ),
   },
   logo: (
-    <span>
-      GBS FrameWork Docs <br />
+    <span style={{display: "flex", alignItems: "center"}}>
+      GBS FrameWork Docs
       <Image
-      src="https://uploads-ssl.webflow.com/5d9ba0eb5f6edb77992a99d0/5de7ce5d154e7e36ea67a77f_Christmastree.gif"
-      width={100}
-      height={100}
+      src="/xmastree.gif"
+      width={50}
+      height={50}
       alt="Picture of the author"
     />
     </span>
