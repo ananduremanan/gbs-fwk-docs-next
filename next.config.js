@@ -5,6 +5,6 @@ const withNextra = require('nextra')({
 
 module.exports = withNextra({
   images: {
-    domains: ['uploads-ssl.webflow.com'],
+    domains: ['raw.githubusercontent.com'],
   },
 });
