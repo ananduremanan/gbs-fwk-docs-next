@@ -1,8 +1,4 @@
-# GBS FWK CORE Version
-
-import LatestVersion from '../components/LatestVersion';
-
-<LatestVersion packageName="@grampro/fwk-core-global" />
+# GBS FWK CORE Global Version
 
 This package contains the GBS Core with global state manangement.
 
@@ -12,11 +8,9 @@ This package contains the GBS Core with global state manangement.
 
 ### Usage
 
-`Important : As of now this package only works React Functional Components.`
-
 Wrap the Store Provider around your App component.
 
-```bash
+```js
 import ReactDOM from "react-dom/client";
 import App from "./app.tsx";
 import "./index.css";
@@ -76,6 +70,43 @@ export default function App(){
 ```
 
 The Above method will ensure that your state data globally available across the application and thus your other components can also use them.
+
+#### How to access global state in class component
+
+Using global state in class component is bit different. The global state can be accessed from class components using the method `classConnect`. Following example depicts the usage of global state in class component.
+
+```bash
+import { Component } from "react";
+import "./App.css";
+import { storeService } from "@grampro/fwk-core-global";
+import { classConnect } from "@grampro/fwk-core-global";
+
+class App extends Component {
+  componentDidMount(): void {
+    const data = "Some Data";
+    storeService.setData("reduxOnClass", data);
+  }
+  handleReveal = () => {
+    const { reduxOnClass }: any = this.props;
+    console.log(reduxOnClass);
+  };
+
+  render() {
+    return (
+      <div>
+        <div>Redux on Class Component</div>
+        <button onClick={this.handleReveal}>Reveal Data</button>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state: any) => ({
+  reduxOnClass: state.global.reduxOnClass,
+});
+
+export default connect(mapStateToProps)(App);
+```
 
 #### Why We need this?
 
