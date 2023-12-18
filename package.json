@@ -22,7 +22,8 @@
     "nextra": "latest",
     "nextra-theme-docs": "latest",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-snowfall": "^1.2.1"
   },
   "devDependencies": {
     "@stackblitz/sdk": "^1.9.0",

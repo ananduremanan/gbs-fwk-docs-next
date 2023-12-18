@@ -2,6 +2,7 @@ import React from 'react';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Snowfall from 'react-snowfall';
 
 const config: DocsThemeConfig = {
   banner: {
@@ -15,6 +16,7 @@ const config: DocsThemeConfig = {
   },
   logo: (
     <span style={{ display: 'flex', alignItems: 'center' }}>
+      <Snowfall snowflakeCount={50} speed={[0, 1.0]} />
       GBS FrameWork Docs
       <Image
         src="https://raw.githubusercontent.com/ananduremanan/Demo/main/xmastree.gif"
