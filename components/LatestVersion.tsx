@@ -13,12 +13,12 @@ const LatestVersion = ({ packageName }) => {
   return (
     <div style={{display: "flex"}}>
       <b>Latest version : {version}</b>
-      <Image
+      {/* <Image
         src="https://raw.githubusercontent.com/ananduremanan/Demo/main/fireworks.gif"
         width={30}
         height={30}
         alt="Picture of the author"
-      />
+      /> */}
     </div>
   );
 };
