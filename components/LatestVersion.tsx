@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const LatestVersion = ({ packageName }) => {
   const [version, setVersion] = useState(null);
@@ -10,8 +11,14 @@ const LatestVersion = ({ packageName }) => {
   }, [packageName]);
 
   return (
-    <div>
+    <div style={{display: "flex"}}>
       <b>Latest version : {version}</b>
+      <Image
+        src="https://raw.githubusercontent.com/ananduremanan/Demo/main/fireworks.gif"
+        width={30}
+        height={30}
+        alt="Picture of the author"
+      />
     </div>
   );
 };
