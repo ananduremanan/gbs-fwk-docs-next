@@ -1,7 +1,7 @@
 import React from 'react';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router';
-import Image from 'next/image'
+import Image from 'next/image';
 
 const config: DocsThemeConfig = {
   banner: {
@@ -14,14 +14,14 @@ const config: DocsThemeConfig = {
     ),
   },
   logo: (
-    <span style={{display: "flex", alignItems: "center"}}>
+    <span style={{ display: 'flex', alignItems: 'center' }}>
       GBS FrameWork Docs
       <Image
-      src="/xmastree.gif"
-      width={50}
-      height={50}
-      alt="Picture of the author"
-    />
+        src="https://uploads-ssl.webflow.com/5d9ba0eb5f6edb77992a99d0/5de7ce5d154e7e36ea67a77f_Christmastree.gif"
+        width={50}
+        height={50}
+        alt="Picture of the author"
+      />
     </span>
   ),
   project: {
