@@ -1,0 +1,15 @@
+.banner {
+  width: 100%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.355)), url("https://raw.githubusercontent.com/ananduremanan/Demo/main/christmas-clipart.webp");
+  margin-top: 1.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  height: 12rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
