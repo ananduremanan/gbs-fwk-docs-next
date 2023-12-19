@@ -56,6 +56,12 @@ export default App;
 
 ```
 
+import styles from '../components/Grid.module.css';
+import Link from 'next/link';
+ 
+<div className={styles.warningCard}><b><span>Important: </span>The name of the global state should be unique</b><br /><br />
+The Name giving to the global state should be unique. Adding same name to different data may overwrite your data.</div>
+
 Now you can simply use your global state in various component's by using
 
 `storeservice.getData("your_unique_name");`
