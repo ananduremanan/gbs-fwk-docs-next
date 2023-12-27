@@ -16,14 +16,14 @@ const config: DocsThemeConfig = {
   },
   logo: (
     <span style={{ display: 'flex', alignItems: 'center' }}>
-      <Snowfall snowflakeCount={50} speed={[0, 1.0]} />
+      {/* <Snowfall snowflakeCount={50} speed={[0, 1.0]} /> */}
       GBS FrameWork Docs
-      <Image
+      {/* <Image
         src="https://raw.githubusercontent.com/ananduremanan/Demo/main/xmastree.gif"
         width={50}
         height={50}
         alt="Picture of the author"
-      />
+      /> */}
     </span>
   ),
   project: {
