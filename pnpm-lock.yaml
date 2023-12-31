@@ -14,6 +14,9 @@ dependencies:
   nextra-theme-docs:
     specifier: latest
     version: 2.10.0(next@13.0.6)(nextra@2.10.0)(react-dom@18.2.0)(react@18.2.0)
+  pnpm:
+    specifier: ^8.13.1
+    version: 8.13.1
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2210,6 +2213,12 @@ packages:
 
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
+    dev: false
+
+  /pnpm@8.13.1:
+    resolution: {integrity: sha512-dYvrxpictkYsUTgSmEAZOxDCWN3NsKtD7g753Yd4S8IY1uQctb7qw2K4zjPx+LCAJbWZkzwLzoIFCpo2uEdNQw==}
+    engines: {node: '>=16.14'}
+    hasBin: true
     dev: false
 
   /postcss@8.4.14:

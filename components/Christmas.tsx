@@ -41,15 +41,18 @@ export default function Christmas() {
   };
 
   return (
+    // <div className={styles.banner}>
+    //   {timeLeft.days !== undefined ? (
+    //     <span style={{color: "#fff", }}>
+    //       {formatTime(timeLeft.days)}:{formatTime(timeLeft.hours)}:
+    //       {formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
+    //     </span>
+    //   ) : (
+    //     <span>Happy Christmas!</span>
+    //   )}
+    // </div>
     <div className={styles.banner}>
-      {timeLeft.days !== undefined ? (
-        <span style={{color: "#fff", }}>
-          {formatTime(timeLeft.days)}:{formatTime(timeLeft.hours)}:
-          {formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
-        </span>
-      ) : (
-        <span>Happy Christmas!</span>
-      )}
+
     </div>
   );
 }
