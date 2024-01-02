@@ -118,6 +118,39 @@ const mapStateToProps = (state: any) => ({
 export default classConnect(mapStateToProps)(App);
 ```
 
+<div style={{display: "flex", alignItems: "flex-end"}}>
+#### How to subscribe to the global store 
+<span style={{backgroundColor: "red", padding: "0.2rem", borderRadius: "0.5rem", color: "white"}}>Unstable</span>
+</div>
+
+You can subsribe to the changes of the global store by using `storeService.getStore()` method. This will subscribe to the changes of store and an event will trigger whenever a new chnages happens.
+
+Example:
+
+```bash
+import React, { useEffect } from "react";
+import { storeService } from "@grampro/fwk-core-global";
+
+const SubscribeComponent = () => {
+  useEffect(() => {
+    const subscription = storeService.getStore().subscribe((state) => {
+      // Handle store state changes here
+      console.log("Store state changed:", state);
+    });
+
+    return () => {
+      // Clean up the subscription when the component is unmounted
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  return <div>Subscription Component</div>;
+};
+
+export default SubscribeComponent;
+
+```
+
 #### Why We need this?
 
 This will overcome the issue of prop drilling and a better state manangement and fixes various issues with [gbs-fwk-buildingblock](https://www.npmjs.com/package/gbs-fwk-buildingblock)
