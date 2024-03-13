@@ -1,0 +1,39 @@
+## Pdf2Images
+
+Converts Pdf Files to Images (Base64).
+
+### Usage & Examples:
+
+        - **`Pdf2Images`**:
+
+            ```jsx copy
+            import { ChangeEvent, useState } from "react";
+            import { Pdf2Images } from "gbs-fwk-core";
+
+            export default function App() {
+                const [pdfFile, setPdfFile] = useState<File | null | any>(null);
+                const [images, setImages] = useState<any>([]);
+
+                const onFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+                    const file = event.target.files && event.target.files[0];
+                    if (file) {
+                        setPdfFile(file);
+                    }
+                };
+
+                const clickAction = async () => {
+                    const img = await Pdf2Images(pdfFile);
+                    setImages(img)
+                }
+                return (
+                    <div>
+                        <input type="file" onChange={onFileChange} />
+                        <button onClick={() => {clickAction}}>Click</button>
+                        {images.length > 0 &&
+                            images.map((img: any) =>{
+                                return <img src={img} width={120} height={120} />
+                            })}
+                    </div>);
+                }
+
+            ```
