@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styles from './Christmas.module.css';
+import React, { useState, useEffect } from "react";
+import styles from "./Christmas.module.css";
 
 type TimeLeft = {
   days?: number;
@@ -41,18 +41,15 @@ export default function Christmas() {
   };
 
   return (
-    // <div className={styles.banner}>
-    //   {timeLeft.days !== undefined ? (
-    //     <span style={{color: "#fff", }}>
-    //       {formatTime(timeLeft.days)}:{formatTime(timeLeft.hours)}:
-    //       {formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
-    //     </span>
-    //   ) : (
-    //     <span>Happy Christmas!</span>
-    //   )}
-    // </div>
     <div className={styles.banner}>
-
+      {timeLeft.days !== undefined ? (
+        <span style={{ color: "#fff" }}>
+          {formatTime(timeLeft.days)}:{formatTime(timeLeft.hours)}:
+          {formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
+        </span>
+      ) : (
+        <span>Happy Christmas!</span>
+      )}
     </div>
   );
 }
