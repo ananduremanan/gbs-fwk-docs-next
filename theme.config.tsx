@@ -1,21 +1,21 @@
-import React from 'react';
-import { DocsThemeConfig } from 'nextra-theme-docs';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-import Snowfall from 'react-snowfall';
+import React, { useEffect } from "react";
+import { DocsThemeConfig } from "nextra-theme-docs";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Snowfall from "react-snowfall";
 
 const config: DocsThemeConfig = {
   banner: {
-    key: 'outdated-warning',
+    key: "outdated-warning",
     dismissible: false,
     text: (
-      <div style={{ color: 'red' }}>
+      <div style={{ color: "red" }}>
         ⚠ Warning !!! This Documentation Is Outdated
       </div>
     ),
   },
   logo: (
-    <span style={{ display: 'flex', alignItems: 'center' }}>
+    <span style={{ display: "flex", alignItems: "center" }}>
       {/* <Snowfall snowflakeCount={50} speed={[0, 1.0]} /> */}
       GBS FrameWork Docs
       {/* <Image
@@ -27,22 +27,22 @@ const config: DocsThemeConfig = {
     </span>
   ),
   project: {
-    link: 'https://github.com/ananduremanan/gbs-fwk-docs-next',
+    link: "https://github.com/ananduremanan/gbs-fwk-docs-next",
   },
   useNextSeoProps() {
     const { route } = useRouter();
-    if (route !== '/') {
+    if (route !== "/") {
       return {
-        titleTemplate: '%s – Gbs Docs',
+        titleTemplate: "%s – Gbs Docs",
       };
     }
   },
   docsRepositoryBase:
-    'https://github.com/ananduremanan/gbs-fwk-docs-next/blob/main',
+    "https://github.com/ananduremanan/gbs-fwk-docs-next/blob/main",
   footer: {
     text: (
       <span>
-        Gbs Fwk Docs {new Date().getFullYear()} ©{' '}
+        Gbs Fwk Docs {new Date().getFullYear()} ©{" "}
         <a href="https://gramproindia.com" target="_blank">
           Built with 🎈 fun @ GBS
         </a>
@@ -59,7 +59,7 @@ console.log(
 | | |_ | |  _ <   \\___ \\ 
 | |__| | | |_) |  ____) |
  \\_____| |____/  |_____/ `,
-  'color: red'
+  "color: red"
 );
 
 export default config;

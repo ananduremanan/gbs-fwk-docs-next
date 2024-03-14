@@ -1,0 +1,70 @@
+# SimplePdfViewer Component
+
+SimplePDFViewer Component Provides a simple Pdf Viewer For Single page as well as multi page pdf's. Can be setup as a pdf viewer as well as Carousal.
+
+## Props
+
+| Property   | Type    | Description         |
+| ---------- | ------- | ------------------- |
+| apiUrl     | string  | Url to PDF Document |
+| maxWidth   | number  | Width for viewer    |
+| isCarousal | boolean | Show as a Carousal  |
+| pageMargin | number  | Margin for pages    |
+
+## Usage
+
+Here's an example of how to use the SimplePDFViewer component:
+
+##### Functional Component
+
+```jsx copy filename="App.tsx"
+import { SimplePdfViewer } from "gbs-fwk-buildingblock";
+
+export default function App() {
+  return (
+    <div>
+      <SimplePdfViewer
+        apiUrl="https://raw.githubusercontent.com/ananduremanan/Demo/main/The%20Three%20Little%20Pigs.pdf"
+        isCarousal // Shows as Carousal
+      />
+    </div>
+  );
+}
+```
+
+##### Demo
+
+import React, { useEffect } from "react";
+
+export const PdfViewer = () => {
+
+const [theme, setTheme] = React.useState("")
+
+React.useEffect(() => {
+function getSystemTheme() {
+if (
+window.matchMedia &&
+(window.matchMedia('(prefers-color-scheme: dark)').matches ||
+localStorage.getItem('theme') === 'dark')
+) {
+setTheme("dark")
+} else {
+setTheme("light")
+}
+}
+getSystemTheme();
+}, [])
+
+return (
+
+<div style={{ marginTop: 12 }}>
+  <iframe
+    src={`https://codesandbox.io/embed/3vh6c9?view=preview&module=%2Fsrc%2FApp.tsx&hidenavigation=1&hidedevtools=1&theme=${theme}`}
+    style={{ width: "100%", height: "30rem", borderRadius: "1rem" }}
+    title="lively-river"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</div>
+); };
+
+<PdfViewer />
