@@ -37,3 +37,50 @@ Converts Pdf Files to Images (Base64).
                 }
 
             ```
+
+## How to guides
+
+- #### How to Use Pdf2Images with Uploader Component
+
+```jsx copy
+import React from "react";
+import { Uploader } from "gbs-fwk-buildingblock";
+import { Pdf2Images } from "./pdf2images";
+
+export default function App() {
+  const [fileEvent, setFileEvent] = React.useState < any > [];
+  const [images, setImages] = React.useState < any > [];
+
+  // This function returns image array and it should be asynchronous
+  const p2i = async (file: any) => {
+    const imageArray = await Pdf2Images(file);
+    setImages(imageArray);
+  };
+
+  React.useEffect(() => {
+    if (fileEvent.length > 0) {
+      p2i(fileEvent[0].file);
+    }
+  }, [fileEvent]);
+
+  return (
+    <div>
+      <Uploader
+        batchId="e72ffee4-ccfb-49e9-a430-7ca6fa181d55"
+        documentAPI={"https://gbsapi.com/api"}
+        files={[]}
+        fileCount={1}
+        fileTypes={["pdf"]}
+        onFilesChange={(event: any) => {
+          setFileEvent(event);
+        }}
+      />
+
+      {images.length > 0 &&
+        images.map((img: any) => {
+          return <img src={img} alt="" />;
+        })}
+    </div>
+  );
+}
+```
