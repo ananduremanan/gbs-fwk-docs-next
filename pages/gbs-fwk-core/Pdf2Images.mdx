@@ -84,3 +84,48 @@ export default function App() {
   );
 }
 ```
+
+- #### How to Use Pdf2Images to convert fetched pdf file to Base64
+
+```jsx copy
+import { useEffect, useState } from "react";
+import { Pdf2Images } from "gbs-fwk-core";
+
+export default function App() {
+  const [imgs, setImgs] = useState<any[]>([]);
+
+  const p2i = async (file: any) => {
+    const imageArray = await Pdf2Images(file);
+    console.log(imageArray);
+    return imageArray;
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://raw.githubusercontent.com/ananduremanan/Demo/main/The%20Three%20Little%20Pigs.pdf"
+        );
+        const blob = await response.blob();
+        console.log("blob", blob);
+        const imageUrls: any = await p2i(blob);
+        setImgs(imageUrls);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      {imgs.length > 0 &&
+        imgs.map((img: any) => {
+          return <img src={img} />;
+        })}
+    </div>
+  );
+}
+
+```
