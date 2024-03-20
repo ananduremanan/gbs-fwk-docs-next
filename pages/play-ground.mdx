@@ -4,51 +4,26 @@ Playgroud Provides a space to test Gbs Fwk Compoenets. See how it looks in live,
 
 <br />
 
-{/* <iframe
-  src="https://codesandbox.io/embed/heuristic-bas-9tyfn3?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=light&view=preview"
-  title="heuristic-bas-9tyfn3"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  style={{
-    width: '100%',
-    height: '30rem',
-    borderRadius: '1rem',
-    border: '0.5px solid rgba(128, 128, 128, 0.19)',
-  }}
-></iframe> */}
-
-import React, { useEffect } from 'react';
-import sdk from '@stackblitz/sdk';
-import styles from '../components/Grid.module.css';
+import React, { useEffect } from "react";
+import sdk from "@stackblitz/sdk";
+import styles from "../components/Grid.module.css";
 
 export const GridLive = () => {
-  useEffect(() => {
-    let themeVal = '';
-    function getSystemTheme() {
-      if (
-        window.matchMedia &&
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ||
-          localStorage.getItem('theme') === 'dark')
-      ) {
-        themeVal = 'dark';
-      } else {
-        themeVal = 'light';
-      }
-    }
-    getSystemTheme();
-    sdk.embedProjectId('elementOrId', 'vitejs-vite-vvfyap', {
-      forceEmbedLayout: true,
-      openFile: 'src/App.tsx',
-      clickToLoad: false,
-      hideExplorer: true,
-      hideNavigation: true,
-      terminalHeight: 20,
-      theme: `${themeVal}`,
-    });
-  }, []);
   return (
     <div>
-      <div id="elementOrId" className={styles.elementOrId}></div>
+      <iframe
+        src="https://codesandbox.io/embed/3vh6c9?view=Editor+%2B+Preview&module=%2Fsrc%2FApp.tsx&hidenavigation=1"
+        style={{
+          width: "100%",
+          height: "500px",
+          border: 0,
+          borderRadius: "0.5rem",
+          overflow: "hidden",
+        }}
+        title="gbs-fwk-playground"
+        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+      ></iframe>
     </div>
   );
 };
