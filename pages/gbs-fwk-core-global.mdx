@@ -1,6 +1,12 @@
+<div className={styles.warningCard} style={{ marginTop: "1rem" }}>
+  <b>Warning(Important)***</b>
+  <br />
+  This Package is Unstable
+</div>
+
 # GBS FWK CORE Version
 
-import LatestVersion from '../components/LatestVersion';
+import LatestVersion from "../components/LatestVersion";
 
 <LatestVersion packageName="@grampro/fwk-core-global" />
 
@@ -56,11 +62,16 @@ export default App;
 
 ```
 
-import styles from '../components/Grid.module.css';
-import Link from 'next/link';
- 
-<div className={styles.warningCard}><b><span>Important: </span>The name of the global state should be unique</b><br /><br />
-The Name giving to the global state should be unique. Adding same name to different data may overwrite your data.</div>
+import styles from "../components/Grid.module.css";
+import Link from "next/link";
+
+<div className={styles.warningCard}>
+  <b>
+    <span>Important: </span>The name of the global state should be unique
+  </b>
+  The Name giving to the global state should be unique. Adding same name to different
+  data may overwrite your data.
+</div>
 
 Now you can simply use your global state in various component's by using
 
@@ -118,9 +129,18 @@ const mapStateToProps = (state: any) => ({
 export default classConnect(mapStateToProps)(App);
 ```
 
-<div style={{display: "flex", alignItems: "flex-end"}}>
-#### How to subscribe to the global store 
-<span style={{backgroundColor: "red", padding: "0.2rem", borderRadius: "0.5rem", color: "white"}}>Unstable</span>
+<div style={{ display: "flex", alignItems: "flex-end" }}>
+  #### How to subscribe to the global store
+  <span
+    style={{
+      backgroundColor: "red",
+      padding: "0.2rem",
+      borderRadius: "0.5rem",
+      color: "white",
+    }}
+  >
+    Unstable
+  </span>
 </div>
 
 You can subsribe to the changes of the global store by using `storeService.getStore()` method. This will subscribe to the changes of store and an event will trigger whenever a new chnages happens.
