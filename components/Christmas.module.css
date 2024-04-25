@@ -1,11 +1,17 @@
 .banner {
   width: 100%;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.355)), url("https://raw.githubusercontent.com/ananduremanan/Demo/main/christmas-clipart.webp");
+  /* background-image: radial-gradient(circle, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.355)), url("https://raw.githubusercontent.com/ananduremanan/Demo/main/christmas-clipart.webp"); */
+  background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0),
+      rgba(0, 0, 0, 0.355)
+    ),
+    url("https://raw.githubusercontent.com/ananduremanan/Demo/main/Frame%201.png");
   /* background-image: radial-gradient(circle, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.355)), url("https://raw.githubusercontent.com/ananduremanan/Demo/main/cindy_suen.gif"); */
   margin-top: 1.5rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  height: 12rem;
+  height: 6rem;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -15,8 +21,8 @@
   font-size: 2rem;
 }
 
-@media screen and (min-width: 768px){
-  .banner{
-    height: 20rem
+@media screen and (min-width: 768px) {
+  .banner {
+    height: 10rem;
   }
 }
