@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Svelte() {
     return (
-        <a href="https://gbs-svelte-block.netlify.app/" target="_blank">
+        <a href="https://gbs-svelte-bblock.netlify.app" target="_blank">
             <div className={styles.banner}>
                 <div style={{ display: "flex" }}>
                     <Image
