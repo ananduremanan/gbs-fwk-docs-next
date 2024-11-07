@@ -10,7 +10,7 @@ const config: DocsThemeConfig = {
     dismissible: false,
     text: (
       <div style={{ color: "red" }}>
-        ⚠ Warning !!! This Documentation Is Outdated
+        Deprecated as of Novemeber 2024. Please use New Library(<a href="https://blackmax-designs.gitbook.io/building-block-v2.0">B_Block v2.0</a>)
       </div>
     ),
   },
